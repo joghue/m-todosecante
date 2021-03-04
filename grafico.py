@@ -25,6 +25,7 @@ def plot_solucao(lista, x, nome_fig):
     ax.add_artist(circulo)
     ax.add_artist(circulo1)
     plt.grid(True)
+    plt.title("solução das circunferências")
     fig.savefig(nome_fig)
     plt.show()
     #análise circunferências
@@ -41,8 +42,9 @@ def plot_analise(lista, x, circ, d, nome_fig):
     plt.grid(True)
     plt.plot(int_01, img_01, 'g--', d, img_02, 'bs')
     plt.show()
+
 def teste(lista,funcoes):
-    a = np.linspace(min(lista), max(lista), 50)
+    a = np.linspace(min(lista), max(lista), 40)
     cubic_interp = interp1d(lista,funcoes, kind='cubic') 
     resultados = cubic_interp(a)
     a = plt.plot(resultados,'r')
@@ -51,7 +53,7 @@ def teste(lista,funcoes):
     plt.show()
 def teste_2(lista):
    c = len(lista)
-   a = np.linspace(min(lista), max(lista), 50)
+   a = np.linspace(min(lista), max(lista), 40)
    cubic_interp = interp1d(lista,list(range(0,c)), kind ='cubic') 
    resultados = cubic_interp(a)
    img_01 = pl.plot(resultados,'r')
@@ -61,14 +63,15 @@ def teste_2(lista):
    
    # plot quadrado
 def plot_quad(lista,x,nom_fig):
-    lado_1 = matplotlib.pyplot.hlines(0,lista[0],lista[1], color = 'r')
-    lado_2 = matplotlib.pyplot.hlines(lista[1],lista[0], lista[1], color = 'r')
-    lado_3 = matplotlib.pyplot.vlines(lista[0],0,lista[1] ,color ='r')
-    lado_4 = matplotlib.pyplot.vlines(lista[1],0,lista[1],color ='r')
-    Lado_1 = matplotlib.pyplot.hlines(0,x, lista[0], color = 'g')
-    Lado_2 = matplotlib.pyplot.hlines(lista[1],x,lista[0], color = 'g')
-    Lado_3 = matplotlib.pyplot.vlines(lista[0],0,lista[1] ,color ='g')
-    Lado_4 = matplotlib.pyplot.vlines(x,0,lista[1],color ='g')
+    plt.title("plot da solução dos quadrados")
+    matplotlib.pyplot.hlines(lista[0],lista[1],lista[1], color = 'r')
+    matplotlib.pyplot.hlines(lista[1],lista[0], lista[1], color = 'r')
+    matplotlib.pyplot.vlines(lista[0],0,lista[1] ,color ='r')
+    matplotlib.pyplot.vlines(lista[1],0,lista[1],color ='r')
+    matplotlib.pyplot.hlines(0,x, lista[0], color = 'g')
+    matplotlib.pyplot.hlines(lista[1],x,lista[0], color = 'g')
+    matplotlib.pyplot.vlines(lista[0],0,lista[1] ,color ='g')
+    matplotlib.pyplot.vlines(x,0,lista[1],color ='g')
     ax.set_aspect('equal')  
     plt.xlim([-lista[1]*3,lista[1]*3])                 #alterando eixos
     plt.ylim(-lista[1]*3,lista[1]*3) 
@@ -78,6 +81,7 @@ def plot_quad(lista,x,nom_fig):
     plt.show()
 # Análise quadrados
 def plot_Analisequad(lista, x, circ, d, nome_fig):
+    plt.title("plot de pontos por iteração")
     xmin = min(lista[0] - lista[1], x - lista[1]) - 1
     xmax =max(lista[0] - lista[1], x - lista[1]) + 1
     int_01 = np.arange(xmin, xmax, 0.01)
