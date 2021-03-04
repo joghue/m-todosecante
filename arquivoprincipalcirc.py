@@ -14,24 +14,27 @@ from grafico import plot_solucao,plot_erro,plot_analise,teste, teste_2
 import listas as lt
 import funccirc as fc
 import condicoes as cond
+import feradores as fe
 # função 
-Solution,Count,tuplex,error,funcoes = sec(fc.circ_9,cond.initial,cond.second,cond.tol1,cond.intmax,cond.tol3) 
-condicao = 1
-print(Solution)
-print(Count)
-
-k = len(tuplex) 
-print (k)
 i = 0
-j = 0
-
-DesvioPadrão = np.std(tuplex, axis = 0, dtype = float)
-print(DesvioPadrão)
-print(tuplex)
-# gráficos
-if (condicao == 1):
-    plot_solucao(lt.lista_5,Solution,"soluc1")
-    plot_analise(lt.lista_5,Solution, fc.circ_5,tuplex,"fig3")
-    plot_erro(error,"fig2")
-    teste(tuplex,funcoes)
-    teste_2(tuplex)
+file_name = ("resultado[i].txt")
+print(file_name)
+with open(file_name,"w") as file_object:
+  for i in range(0,6):
+    Solution,Count,tuplex,error,funcoes = sec(fc.circ_1,fe.intervalos[i],fe.intervalos[i+1],cond.intmax,cond.tol1,cond.tol3) 
+    condicao = 1
+    k = len(tuplex) 
+    j = 0
+    DesvioPadrão = np.std(tuplex, axis = 0, dtype = float)
+    print(Solution)
+    A_1 = str(fe.intervalos[i])
+    A_2 = str(fe.intervalos[i+1])  
+    A = str(Solution)
+    B = str(Count)
+    C = str(tuplex)
+    D = str(DesvioPadrão)
+    a = (A_1 + "&" + A_2 + "&"+ A + "& " + B + "& "+ C + "& " + D  + "\n"  )
+    file_object.write(a)
+    
+  
+    
