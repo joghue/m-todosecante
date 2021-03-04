@@ -8,9 +8,8 @@ Created on Mon Dec  7 23:25:38 2020
 def quadrado(lista):
     return lambda x:max(0,abs(x+lista[1]-lista[0]))*max(0,abs(lista[0]+lista[1]-x))
 
-import numpy as np
+
 import condicoes as cd
-import math
 import grafico as gr
 from funcpython import sec 
 
@@ -25,16 +24,16 @@ lista_6 =  [-4,11]
 lista_7=[-2,16]
 lista_8 = [2,55]
 lista_9 = [-2,52]
-Solution,Count,tuplex,error = sec(quadrado(lista_3),cd.initial,cd.second,cd.tol1,cd.intmax,cd.tol3)
+Solution,Count,tuplex,error,funcoes = sec(quadrado(lista_7),cd.initial,cd.second,cd.tol1,cd.intmax,cd.tol3)
 k = len(tuplex)
 i = 0
 j = 0
 
-gr.plot_quad(lista_1,Solution,"fig")
-gr.plot_Analisequad(lista_0,Solution,quadrado(lista_3),tuplex,"fig2")
+gr.plot_quad(lista_3,Solution,"fig")
+gr.plot_Analisequad(lista_3,Solution,quadrado(lista_3),tuplex,"fig2")
 gr.plot_erro(error,"fig4")
 print(Solution)
 print(tuplex)
 print(Count)
 print(error)
-         
+       
