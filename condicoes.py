@@ -6,9 +6,7 @@ Created on Mon Dec  7 00:23:33 2020
 """
 # """condicoes utilizadas globalmente"""
 # 'condicoes = [x,h,tolerancia,itermax,tolfunc]'
-condicoes= [-4021.5,-2659,0.00001,100000,0.0001]
-initial  = condicoes[0]
-second = condicoes[1]
-tol1 = condicoes[4]
-intmax = condicoes[3]
-tol3 = condicoes[2]
+condicoes = [0.00001,100000,0.0001]
+tol1 = condicoes[2]
+intmax = condicoes[1]
+tol3 = condicoes[0]
