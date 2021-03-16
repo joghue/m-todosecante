@@ -23,10 +23,13 @@ i = 0
 a = str(i)
 file_name = "resultado.sqrt(10).tex"
 print(file_name)
+
 with open(file_name,"w") as file_object:
   for i in range(0,6):
+   
     str(i)
-    Solution,Count,tuplex,error,funcoes = sec(fc.circ_10,fe.intervalos[i],fe.intervalos[i+1],cond.intmax,cond.tol1,cond.tol3) 
+    Solution,Count,tuplex,error,funcoes = sec(fc.circ_10,fe.intervalos[i],fe.intervalos[i+1],cond.intmax,cond.tol1,cond.tol3)
+    plot_analise(lt.lista_10, Solution, fc.circ_10, tuplex," nome_fig.pnh")
     condicao = 1
     k = len(tuplex) 
     j = 0
