@@ -28,11 +28,11 @@ lista_9 = [-2,52]
 
 i = 0
 j = 0
-file_name = "resultado.quadrado.tex"
+file_name = "resultado.quadrado[8].tex"
 with open(file_name,"w") as file_object:
- for i in range(0,4):
+ for i in range(0,5):
     str(i)
-    Solution,Count,tuplex,error,funcoes = sec(quadrado(lista_0),fe.intervalos[i],fe.intervalos[i+1],cond.intmax,cond.tol1,cond.tol3) 
+    Solution,Count,tuplex,error,funcoes = sec(quadrado(lista_7),fe.intervalos[i],fe.intervalos[i+1],cond.intmax,cond.tol1,cond.tol3) 
     
     DesvioPadrão = np.std(tuplex, axis = 0, dtype = float)
     print(Solution)
@@ -45,7 +45,8 @@ with open(file_name,"w") as file_object:
     a = ("[" + A_1 + "; " + A_2 + "]" + "& " + A + "& " + B + "& " + D  + "\n "  )
     file_object.write(a)
 
-gr.plot_quad(lista_3,Solution,"fig")
+    gr.plot_quad(lista_7,Solution,"fig")
+
 gr.plot_Analisequad(lista_3,Solution,quadrado(lista_3),tuplex,"fig2")
 gr.plot_erro(error,"fig4")
 print(Solution)
