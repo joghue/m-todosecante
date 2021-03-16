@@ -64,13 +64,13 @@ def teste_2(lista):
    # plot quadrado
 def plot_quad(lista,x,nom_fig):
     plt.title("plot da solução dos quadrados")
-    matplotlib.pyplot.hlines(lista[0],lista[1],lista[1], color = 'r')
+    matplotlib.pyplot.hlines(0,lista[0],lista[1], color = 'r')
     matplotlib.pyplot.hlines(lista[1],lista[0], lista[1], color = 'r')
     matplotlib.pyplot.vlines(lista[0],0,lista[1] ,color ='r')
     matplotlib.pyplot.vlines(lista[1],0,lista[1],color ='r')
-    matplotlib.pyplot.hlines(0,x, lista[0], color = 'g')
-    matplotlib.pyplot.hlines(lista[1],x,lista[0], color = 'g')
-    matplotlib.pyplot.vlines(lista[0],0,lista[1] ,color ='g')
+    matplotlib.pyplot.hlines(0, x,x+lista[1], color = 'g')
+    matplotlib.pyplot.hlines(lista[1],x,x+lista[1], color = 'g')
+    matplotlib.pyplot.vlines(x + lista[1],0,lista[1] ,color ='g')
     matplotlib.pyplot.vlines(x,0,lista[1],color ='g')
     ax.set_aspect('equal')  
     plt.xlim([-lista[1]*3,lista[1]*3])                 #alterando eixos
