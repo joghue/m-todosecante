@@ -22,10 +22,10 @@ def sec(fun, a, b, itermax, tol, tolfunc):
     lista_fx.append(f_b)
     lista_erros.append(ea)
     # Verifica se f(a) ou f(b) é menor que a tolerância, caso contrário entra no ciclo principal
-    if (f_a < tolfunc):
+    if (abs(f_a) < tolfunc):
         print("Tolerância da função atingida.")
         b = a
-    elif (f_b < tolfunc):
+    elif (abs(f_b) < tolfunc):
         print("Tolerância da função atingida.")
     else:
         # Ciclo principal
