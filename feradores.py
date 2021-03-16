@@ -6,8 +6,8 @@ Created on Thu Feb 18 23:16:53 2021
 """
 #gera a partir  das raízes, intervalos
 import math
-a,b = (3,-3.86383)
-choose = 0
+a,b = (-2,50)
+choose = 1
 intervalos = []
 if(choose == 1):
 
