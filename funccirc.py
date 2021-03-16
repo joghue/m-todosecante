@@ -10,7 +10,7 @@ def fs(lista):
       return lambda x: (lista[0]-x)**2 +  (lista[1] - lista[2])**2 - (lista[3] + lista[4])**2
 def fsqrt(lista): 
    return lambda x:math.sqrt((lista[0]-x)**2 +  (lista[1] - lista[2])**2) - (lista[3] + lista[4])
-circ_1 = fs(lt.lista_1)
+circ_1 = fsqrt(lt.lista_1)
 circ_2 = fsqrt(lt.lista_2)
 circ_3 = fsqrt(lt.lista_3)
 circ_4 = fsqrt(lt.lista_4)
