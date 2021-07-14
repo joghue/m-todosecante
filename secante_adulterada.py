@@ -46,10 +46,10 @@ def funTriang(xA, lista):
     a0 = np.array([1.0, 0.0])
     nonlinear_constraint = NonlinearConstraint(cons_f, 1.0, 1.0, jac=cons_J)
 
-    flag = True
+
     k = 0
 
-    while flag:
+    while True:
         # Resolve o problema de minimização
         result = minimize(fun_triang, a0, method='trust-constr', jac=grad_triang, hess=hess_triang, constraints=nonlinear_constraint)
         
@@ -60,19 +60,21 @@ def funTriang(xA, lista):
             k = k+1
         elif k > 10:
             # Permite que sejam realizadas até 10 tentivas
-            flag = False
-            return result.x, result.fun, k, False
+         
+            return  result.fun, False
         else:
             # Resolveu o problema sem violar as restrições
-            flag = False
-            return result.fun,result.x,  k, True
+          
+            return result.fun,  True
 
 def sec(fun, a, b, itermax, tol, tolfunc,lista):
     
     # Cálculos iniciais
     eps =    np.finfo(float).eps            
-    f_a = funTriang(a, lista)
-    f_b = funTriang(a, lista)
+    f_a, Vflag = funTriang(a, lista)
+    # colocar um if 
+    f_b, Vflag = funTriang(a, lista)
+     # colocar um if 
     ea = abs(a - b)
     contador = 0
     # Cria listas vazias
@@ -110,6 +112,8 @@ def sec(fun, a, b, itermax, tol, tolfunc,lista):
             b = c
             f_a = f_b
             f_b =funTriang(c, lista)
+             # colocar um while(  Vflag == False) 
+             # colocar um if(i>10) dentro do while, pra verificar
             ea = abs(a - b)
             # Salva alguns valores
             lista_x.append(b)
