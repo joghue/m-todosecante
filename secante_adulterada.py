@@ -61,7 +61,7 @@ def funTriang(xA, lista):
         elif k > 10:
             # Permite que sejam realizadas até 10 tentivas
             
-            return result.fun[k], False
+            return result.fun, False
         else:
             # Resolveu o problema sem violar as restrições
           
@@ -128,7 +128,7 @@ def Sol_Triangle( a, b, itermax, tol, tolfunc,lista):
                 f_b =funTriang(c, lista)
                 Count_2 = Count_2 + 1
                 if(Count_2 >10):
-                   a= -2
+                   a= "erro"
                    return a, b, contador, lista_x, lista_erros, lista_fx,f_b
             else: 
                   pass
