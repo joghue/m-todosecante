@@ -60,42 +60,51 @@ def funTriang(xA, lista):
             k = k+1
         elif k > 10:
             # Permite que sejam realizadas até 10 tentivas
-         
-            return  result.fun, False
+            
+            return result.fun[k], False
         else:
             # Resolveu o problema sem violar as restrições
           
-            return result.fun,  True
+            return result.fun, True
 
-def sec(fun, a, b, itermax, tol, tolfunc,lista):
+def Sol_Triangle( a, b, itermax, tol, tolfunc,lista):
     
     # Cálculos iniciais
-    eps =    np.finfo(float).eps            
+   eps =    np.finfo(float).eps  
+          
+   f_a, Vflag = funTriang(a, lista)
+   if(Vflag == False):
+    a = input("Valores inválidos, insira outro")
     f_a, Vflag = funTriang(a, lista)
-    # colocar um if 
-    f_b, Vflag = funTriang(a, lista)
-     # colocar um if 
-    ea = abs(a - b)
-    contador = 0
-    # Cria listas vazias
-    lista_x = []
-    lista_fx = []
-    lista_erros = []
+   
+   
+   f_b, Vflag = funTriang(b, lista) 
+   if(Vflag == False):
+     b = input("Valores inválidos, insira outro")
+     f_b, Vflag = funTriang(b, lista)
+ 
+    
+   ea = abs(a - b)
+   contador = 0
+   # Cria listas vazias
+   lista_x = []
+   lista_fx = []
+   lista_erros = []
     # Salva alguns valores
-    lista_x.append(a)
-    lista_x.append(b)
-    lista_fx.append(f_a)
-    lista_fx.append(f_b)
-    lista_erros.append(ea)
+   lista_x.append(a)
+   lista_x.append(b)
+   lista_fx.append(f_a)
+   lista_fx.append(f_b)
+   lista_erros.append(ea)
     # Verifica se f(a) ou f(b) é menor que a tolerância, caso contrário entra no ciclo principal
-    if (abs(f_a) < tolfunc):
+   if (abs(f_a) < tolfunc):
         print("Tolerância da função atingida.")
         b = a
         return b, contador, lista_x, lista_erros, lista_fx,f_b
-    elif (abs(f_b) < tolfunc):
+   elif (abs(f_b) < tolfunc):
         print("Tolerância da função atingida.")
         return b, contador, lista_x, lista_erros, lista_fx,f_b
-    else:
+   else:
         print( contador)
         # Ciclo principal
         while (abs(f_b) > tolfunc) and (contador < itermax) and (tol * abs(b) <= ea)  :
@@ -111,22 +120,32 @@ def sec(fun, a, b, itermax, tol, tolfunc,lista):
             a = b
             b = c
             f_a = f_b
-            f_b =funTriang(c, lista)
-             # colocar um while(  Vflag == False) 
-             # colocar um if(i>10) dentro do while, pra verificar
+            Count_2 = 0
+            f_b,Vflag = funTriang(c, lista)
+            if(Vflag == False):
+             while(Count_2 < 10 or Vflag== False):
+                c = (a + b) / 2.0
+                f_b =funTriang(c, lista)
+                Count_2 = Count_2 + 1
+                if(Count_2 >10):
+                   a= -2
+                   return a, b, contador, lista_x, lista_erros, lista_fx,f_b
+            else: 
+                  pass
+                    
             ea = abs(a - b)
             # Salva alguns valores
             lista_x.append(b)
             lista_erros.append(ea)
             lista_fx.append(f_b)    
             
-            if (abs(f_b) < tolfunc):
+        if (abs(f_b) < tolfunc):
                g = print("Tolerância da função atingida.")
                return b, contador, lista_x, lista_erros, lista_fx,f_b
-            elif (ea <tol  * abs(b)):
+        elif (ea <tol  * abs(b)):
                 g=  print("Tolerância atingida.")
                 return b, contador, lista_x, lista_erros, lista_fx,f_b
-            elif (contador > itermax ):
+        elif (contador > itermax ):
                 g =  print("Número máximo de iterações atingido." )
                 return b, contador, lista_x, lista_erros, lista_fx,f_b
   
