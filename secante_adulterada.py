@@ -15,7 +15,7 @@ import condicoes as cond
 from math import cos, sin, radians
 from scipy.optimize import minimize, NonlinearConstraint
 from sympy import Symbol
-from sympy import Symbol
+
 def funTriang(xA, lista):
     # Define as funções necessárias (função, jacobiana (gradiente), hessiana)
     def fun_obj(a, xA, lista):
