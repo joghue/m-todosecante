@@ -25,7 +25,7 @@ a,b,c,d,e,f= Sol_Triangle(2, 1, cond.intmax,cond.tol1,cond.tol3,LT_2)
 print(a)
 print(a)
 file_name = "resultado.Tri[0].tex"
-triplot(a,LT_1)
+triplot(a,LT_2)
 # mtri(x,y,triangulation)
 # plt.triplot(mtri)
 # plt.show()
