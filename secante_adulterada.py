@@ -123,16 +123,14 @@ def Sol_Triangle( a, b, itermax, tol, tolfunc,lista):
             Count_2 = 0
             f_b,Vflag = funTriang(c, lista)
             if(Vflag == False):
-             while(Count_2 < 10 or Vflag== False):
-                c = (a + b) / 2.0
-                f_b =funTriang(c, lista)
-                Count_2 = Count_2 + 1
-                if(Count_2 >10):
-                   a= "erro"
-                   return a, b, contador, lista_x, lista_erros, lista_fx,f_b
-            else: 
-                  pass
-                    
+                while(Count_2 < 10 or Vflag== False):
+                    c = (a + b) / 2.0
+                    f_b, Vflag =funTriang(c, lista)
+                    Count_2 = Count_2 + 1
+                    if(Count_2 >10):
+                        a= "erro"
+                        print(a)
+                        return  b, contador, lista_x, lista_erros, lista_fx,f_b
             ea = abs(a - b)
             # Salva alguns valores
             lista_x.append(b)
