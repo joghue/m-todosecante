@@ -130,7 +130,9 @@ def plot_Analisequad(lista, x, circ, d, nome_fig):
     plt.plot(int_01, img_01, 'g--', d, img_02, 'bs')
     plt.show()
 
-
+def Analise_tri(F_x, x):
+    plt.grid(True)
+    plt.plot(F_x,x,'o')
 # erros
 def plot_erro(lista_erro, nome_fig):
     n = len(lista_erro)
