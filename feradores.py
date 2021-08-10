@@ -25,13 +25,17 @@ if(choose == 1):
     intervalos.append(h)
     print(intervalos)
 else:
-    c = -2*a
-    d = -3*a
-    e = 2*a
-    f= 3*a
+    c = (a+b)/2 + (a-b)/2
+    d = (a+b)/3 + (a-b)/2
+    e = (a+b)/4 + (a-b)/2
+    f= (a+b)/5 + (a-b)/2
+    g= (a+b)/6 + (a-b)/2
+    h = (a+b)/7 + (a-b)/2
 intervalos.append(c)
 intervalos.append(d)
 intervalos.append(e)
+intervalos.append(g)
 intervalos.append(f)
+intervalos.append(h)
     
    
