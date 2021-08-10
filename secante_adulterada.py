@@ -15,7 +15,7 @@ import condicoes as cond
 from math import cos, sin, radians
 from scipy.optimize import minimize, NonlinearConstraint
 from sympy import Symbol
-
+# fazer o gráfico do FunTriang***
 def funTriang(xA, lista):
     # Define as funções necessárias (função, jacobiana (gradiente), hessiana)
     def fun_obj(a, xA, lista):
@@ -124,9 +124,11 @@ def Sol_Triangle( a, b, itermax, tol, tolfunc,lista):
             f_b,Vflag = funTriang(c, lista)
             if(Vflag == False):
                 while(Count_2 < 10 or Vflag== False):
-                    c = (a + b) / 2.0
+                    #  a + (b - a) * np.random()
+                    c = (a + b)/2
                     f_b, Vflag =funTriang(c, lista)
                     Count_2 = Count_2 + 1
+                    b = c
                     if(Count_2 >10):
                         a= "erro"
                         print(a)
