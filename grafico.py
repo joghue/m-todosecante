@@ -92,25 +92,25 @@ def plot_quad(lista, x, nome_fig):
     fig1.savefig(nome_fig)
     plt.show()
 
-def triplot(solucao,lista):
-    A_0 =[solucao,lista[0]]
-    A_1 =[solucao + lista[1]*math.cos(math.radians(lista[4])),lista[0] + lista[1]*math.sin(math.radians(lista[4]))]
-    A_2 =[solucao + lista[2]*math.cos(math.radians(lista[4]+lista[3])),lista[0] + lista[2]*math.sin(math.radians(lista[4]+lista[3]))]
+def triplot(solucao,lista,lista_movel):
+    for j in range(len(lista_movel)):
+       lista_movel[j][0] = lista_movel[j][0] + solucao
+    size = len(lista_movel)
+    i = 0
+    Size = len(lista)
+    k = 0
+    while(k<Size): 
+     plt.plot([lista[k][0],lista[k+1][0],lista[k+2][0],lista[k][0]], [lista[k][1],lista[k+1][1],lista[k+2][1],lista[k][1]])
+     k = k +3
+    while(i<size): 
+     plt.plot([lista_movel[i][0],lista_movel[i+1][0],lista_movel[i+2][0],lista_movel[i][0]], [lista_movel[i][1],lista_movel[i+1][1],lista_movel[i+2][1],lista_movel[i][1]])
+     i = i +3
     plt.grid(True)
-
-    B_0 =[lista[5],lista[6]]
-    B_1 =[lista[5] + lista[7]*math.cos(math.radians(lista[10])),lista[6] + lista[7]*math.sin(math.radians(lista[10]))]
-    B_2 =[lista[5] + lista[8]*math.cos(math.radians(lista[9]+lista[10])),lista[6] + lista[8]*math.sin(math.radians(lista[9]+lista[10]))]
-
-    fig = plt.plot()
     plt.axis('equal')
-
-    plt.plot([A_0[0],A_1[0],A_2[0],A_0[0]], [A_0[1],A_1[1],A_2[1],A_0[1]])
-    plt.plot([B_0[0],B_1[0],B_2[0],B_0[0]], [B_0[1],B_1[1],B_2[1],B_0[1]])
-# plt.plot([coordenada_1, coordenda_2], [coordenda_3)
-# criar função
     plt.show()
-    
+    fig = plt.plot()
+
+
    
      # lim inf x- min(lista[o],x)- 0.1*min(lista[o],x),max(lista[1]+lista[0], lista[1]+x)
      # min(lista[1])
