@@ -24,12 +24,12 @@ def fun_otimizador(a0, funcao, gradiente, hessiana, restricoes):
         
         # Resolve o problema de otimização.
         
-        resultado = minimize( funcao, a0, method='trust-constr', jac = gradiente, hess = hessiana, constraints = restricoes)
+        resultado = minimize( funcao, a0, method='trust-constr', jac = gradiente, hess = hessiana, constraints = restricoes,options={'verbose':3,'gtol':1e-4})
 
         # Verifica a solução.
 
-        if ( resultado.success == False) or (( resultado.fun < 10 ** (-8) ) and ( resultado.constr_violation > eps )):
-
+        if ( resultado.success == False  and ( resultado.constr_violation >= 0.9 )):
+            print("dentro")
             # Não resolveu o problema, ou resolveu o problema violando as restrições.
 
             a0 = np.random.rand(2)

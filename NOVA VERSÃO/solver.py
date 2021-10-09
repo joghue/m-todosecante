@@ -6,6 +6,7 @@ import math
 from modelagem_caso_convexo import fun_conv
 from modelagem_caso_concavo import fun_conc
 from modelagem_caso_misto import fun_misto
+from modelagem_estatistica import fun_simulacao
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -42,13 +43,18 @@ def sec_solver( a, b, obj_fixo, obj_movel, tipo_problema, itermax, tol, tolfunc,
 
         def fun_obj(x): return fun_conc(x, obj_fixo, obj_movel, verbose)
 
+    elif tipo_problema == 3:
+
+        def fun_obj(x): return fun_simulacao(x, obj_fixo, obj_movel, verbose)
+
     else:
 
         print("'tipo_problema': o valor informado é inválido.\n")
         print("O valores possíveis são: \n")
-        print("0 --> objetos convexos. \n")
-        print("1 --> objetos mistos. \n")
-        print("2 --> objetos côncavos. \n")
+        print("0 --> objetos convexos via otimizaçao. \n")
+        print("1 --> objetos mistos via otimização. \n")
+        print("2 --> objetos quaisquer via otimização. \n")
+        print("3 --> objetos quaisquer via simulacão de Monte Carlo. \n")
 
         return math.inf, math.inf, 0, [], [], []
     
